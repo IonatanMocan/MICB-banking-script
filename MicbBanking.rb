@@ -101,8 +101,8 @@ class MicbBanking
   def get_transactions_from_html(html)
     @transactions = []
     Nokogiri::HTML.parse(html).css('li.history-item.success').each do |item|
-      year         = item.xpath('../../preceding-sibling::div[@class = "month-delimiter"]').last.text.split[1].to_s
-      month_name   = item.xpath('../../preceding-sibling::div[@class = "month-delimiter"]').last.text.split[0].to_s
+      year         = item.parent.parent.parent.at_css('div.month-delimiter').text.split[1]
+      month_name   = item.parent.parent.parent.at_css('div.month-delimiter').text.split[0]
       month        = Date::MONTHNAMES.index(month_name).to_s
       day          = item.parent.parent.css('div.day-header').text.split[0]
       time         = item.css('span.history-item-time').text
@@ -111,6 +111,7 @@ class MicbBanking
       description  = item.css('span.history-item-description').text
       amount       = item.css('span.history-item-amount.transaction').css('span[class="amount"]').text.to_f.round(2)
       currency     = item.css('span.history-item-amount.transaction').css('span.amount.currency').text
+
       transactions = Transactions.new(date: date,
                                       description: description,
                                       amount: amount,
