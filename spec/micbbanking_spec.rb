@@ -4,7 +4,7 @@ describe MicbBanking do
   let(:subject) { MicbBanking.new }
 
   context 'testing accounts page' do
-    let(:html) { IO.read("spec/accounts.html") }
+    let(:html) { IO.read("spec/html_for_testing/accounts.html") }
     it '#get_accounts' do
       subject.send(:get_accounts, html)
       expect(subject.accounts.length).to eq 2
@@ -16,7 +16,7 @@ describe MicbBanking do
   end
 
   context 'testing transactions page' do
-    let(:html) {IO.read("spec/transactions1.html")}
+    let(:html) {IO.read("spec/html_for_testing/transactions1.html")}
     it "#get_transactions_from_html" do
       result = subject.send(:get_transactions_from_html, html)
       expect(result.length).to eq 3
