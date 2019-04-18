@@ -1,0 +1,33 @@
+{
+  "accounts": [
+    {
+      "name": "2259A3613041",
+      "balance": "-2,64",
+      "currency": "USD",
+      "nature": "Carduri și conturi",
+      "transactions": [
+        {
+          "date": "16:22 31 martie 2019",
+          "description": "RF: Taxa lunara deservire cont",
+          "amount": "0,29",
+          "currency": "USD"
+        },
+        {
+          "date": "19:58 28 februarie 2019",
+          "description": "RF: Taxa lunara deservire cont",
+          "amount": "0,29",
+          "currency": "USD"
+        }
+      ]
+    },
+    {
+      "name": "2259A3620301",
+      "balance": "-2,26",
+      "currency": "MDL",
+      "nature": "Carduri și conturi",
+      "transactions": [
+
+      ]
+    }
+  ]
+}
